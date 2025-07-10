@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Govind Boys Hostel - Patna</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    header .contacts {
+      font-size: 16px;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://img.freepik.com/free-vector/student-dormitory-room-with-bunk-laptop-desk-office-chair-bookshelf-vector-cartoon-interior-empty-dorm-bedroom-hostel-apartment-with-wooden-bed-with-ladder-table_107791-9859.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .hero-overlay {
+      background-color: rgba(13, 71, 161, 0.75);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .hero-content p {
+      font-size: 22px;
+      font-style: italic;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-button {
+      padding: 14px 28px;
+      font-size: 16px;
+      background-color: #ffffff;
+      color: #0d47a1;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease, color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero-button:hover {
+      background-color: #0d47a1;
+      color: white;
+    }
+
+    .features {
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #0d47a1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card img {
+      width: 50px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin: 10px 0 8px;
+      font-size: 18px;
+      color: #0d47a1;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .contact {
+      padding: 40px 20px;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      background-color: #0d47a1;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .map {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #eeeeee;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+    }
+
+    @media (max-width: 600px) {
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contacts {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="https://img.icons8.com/color/96/home--v1.png" alt="Hostel Logo">
+      <div><strong>Govind Boys Hostel</strong></div>
+    </div>
+    <div class="contacts">
+      📞 +91-7321811279 | +91-9835083284
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Govind Boys Hostel</h1>
+        <p>Comfort, Care, and Convenience – All in One Place in Patna</p>
+        <a href="#contact" class="hero-button">Contact Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Our Facilities</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://img.icons8.com/ios-filled/50/0d47a1/wifi.png" alt="WiFi" />
+        <h3>Free 5G Wi-Fi</h3>
+        <p>Unlimited high-speed internet for learning and entertainment.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/ios-filled/50/0d47a1/restaurant.png" alt="Mess" />
+        <h3>Mess Included</h3>
+        <p>Healthy, home-style meals served daily at no extra cost.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/ios-filled/50/0d47a1/air-conditioner.png" alt="AC Rooms" />
+        <h3>Fan / AC Rooms</h3>
+        <p>Stay cool with both fan and air-conditioned room options.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/ios-filled/50/0d47a1/water.png" alt="RO Water" />
+        <h3>RO Drinking Water</h3>
+        <p>Pure and safe drinking water available 24×7 via RO system.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/ios-filled/50/0d47a1/flash-on.png" alt="Power Backup" />
+        <h3>24×7 Power Backup</h3>
+        <p>Uninterrupted electricity with inverter power backup.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Send Us a Message</h2>
+    <form action="https://formspree.io/f/mzzgnzgp" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="phone" placeholder="Your Phone Number" required />
+      <textarea name="message" rows="4" placeholder="Your Message..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Google Map -->
+    <iframe class="map"
+      src="https://www.google.com/maps?q=Kasturba%20Path,%20Boring%20Road,%20Patna%20Bihar&output=embed"
+      allowfullscreen
+      loading="lazy"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    📍 Kasturba Path, Behind Jamuna Apartment, Near HP Gas Agency, Boring Road, Patna - 800013
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a class="whatsapp-float" href="https://wa.me/917321811279" target="_blank" title="Chat on WhatsApp">💬</a>
+
+</body>
+</html>
