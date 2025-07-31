@@ -1,314 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Govind Boys Hostel - Patna</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f6f8;
-      color: #222;
-    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Govind Boys Hostel</title>
 
-    header {
-      background-color: #0d47a1;
-      color: white;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    <!-- Bootstrap CSS (from CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    header .logo {
-      display: flex;
-      align-items: center;
-    }
+    <!-- AOS Animation CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-    header .logo img {
-      height: 50px;
-      margin-right: 10px;
-      border-radius: 50%;
-    }
+    <style>
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
 
-    header .contacts {
-      font-size: 16px;
-    }
+        .floating-whatsapp img {
+            width: 55px;
+            height: 55px;
+            transition: transform 0.3s ease;
+        }
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: url('https://img.freepik.com/free-vector/student-dormitory-room-with-bunk-laptop-desk-office-chair-bookshelf-vector-cartoon-interior-empty-dorm-bedroom-hostel-apartment-with-wooden-bed-with-ladder-table_107791-9859.jpg') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
+        .floating-whatsapp img:hover {
+            transform: scale(1.1);
+        }
 
-    .hero-overlay {
-      background-color: rgba(13, 71, 161, 0.75);
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
 
-    .hero-content {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero-content h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-    }
-
-    .hero-content p {
-      font-size: 22px;
-      font-style: italic;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    }
-
-    .hero-button {
-      padding: 14px 28px;
-      font-size: 16px;
-      background-color: #ffffff;
-      color: #0d47a1;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease, color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .hero-button:hover {
-      background-color: #0d47a1;
-      color: white;
-    }
-
-    .features {
-      padding: 60px 20px;
-      background: linear-gradient(to bottom, #e3f2fd, #ffffff);
-    }
-
-    .features h2 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 40px;
-      color: #0d47a1;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .service-card {
-      background: white;
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-card img {
-      width: 50px;
-      margin-bottom: 15px;
-    }
-
-    .service-card h3 {
-      margin: 10px 0 8px;
-      font-size: 18px;
-      color: #0d47a1;
-    }
-
-    .service-card p {
-      font-size: 15px;
-      color: #333;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .contact {
-      padding: 40px 20px;
-      background: #fafafa;
-      text-align: center;
-    }
-
-    .contact h2 {
-      margin-bottom: 20px;
-    }
-
-    .contact-form {
-      max-width: 500px;
-      margin: auto;
-      text-align: left;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .contact-form button {
-      background-color: #0d47a1;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .map {
-      width: 100%;
-      height: 300px;
-      border: none;
-      margin-top: 20px;
-    }
-
-    footer {
-      background: #eeeeee;
-      text-align: center;
-      padding: 20px;
-      font-size: 16px;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      border-radius: 50%;
-      padding: 15px;
-      text-align: center;
-      font-size: 24px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      z-index: 999;
-      text-decoration: none;
-    }
-
-    .whatsapp-float:hover {
-      background-color: #128c7e;
-    }
-
-    @media (max-width: 600px) {
-      .hero-content h1 {
-        font-size: 32px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .contacts {
-        margin-top: 10px;
-      }
-    }
-  </style>
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <img src="https://img.icons8.com/color/96/home--v1.png" alt="Hostel Logo">
-      <div><strong>Govind Boys Hostel</strong></div>
+<div class="container mt-5">
+
+    <!-- Header -->
+    <div class="text-center mb-5" data-aos="fade-down">
+        <h1 class="display-4 fw-bold">Govind Boys Hostel</h1>
+        <p class="lead">📞 +91-7321811279 | +91-9835083284</p>
+        <h5 class="text-muted">Comfort, Care, and Convenience – All in One Place in Patna</h5>
+        <a class="btn btn-success mt-3" href="#contactForm">📩 Contact Now</a>
     </div>
-    <div class="contacts">
-      📞 +91-7321811279 | +91-9835083284
+
+    <!-- Facilities -->
+    <section class="mt-5">
+        <h3 class="mb-4 text-primary text-center" data-aos="fade-up">🏡 Our Facilities</h3>
+        <div class="row g-4">
+            <!-- Facilities Cards -->
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="0">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">🏠 Homely Environment</h5>
+                        <p class="card-text">A calm, caring, and family-like environment for all students.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">📶 Free Wi-Fi</h5>
+                        <p class="card-text">Unlimited high-speed internet for study and entertainment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">📍 Prime Location</h5>
+                        <p class="card-text">Located at the heart of Boring Road, Patna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">🏥 Medical Support</h5>
+                        <p class="card-text">Immediate access to medical help when needed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">🧼 Clean Environment</h5>
+                        <p class="card-text">Safe and hygienic living conditions with regular maintenance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">🚰 RO Water & Fridge</h5>
+                        <p class="card-text">Clean drinking water and fridge facility available 24×7.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">🧺 Laundry</h5>
+                        <p class="card-text">Laundry facility available inside the hostel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="700">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">🍽️ Healthy Meals</h5>
+                        <p class="card-text">Well-balanced breakfast, lunch, and dinner included.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="800">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">🎥 CCTV Surveillance</h5>
+                        <p class="card-text">CCTV monitoring ensures security round the clock.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <div class="row mt-5" id="contactForm" data-aos="fade-up">
+        <div class="col-md-8 offset-md-2">
+            <h3 class="text-center mb-4">📬 Send Us a Message</h3>
+            <form method="post" action="/Home/Contact">
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Your Name</label>
+                    <input type="text" id="Name" name="Name" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Phone" class="form-label">Your Phone Number</label>
+                    <input type="tel" id="Phone" name="Phone" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Message" class="form-label">Your Message</label>
+                    <textarea id="Message" name="Message" rows="4" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">📤 Submit</button>
+            </form>
+        </div>
     </div>
-  </header>
+</div>
 
-  <!-- Hero Banner -->
-  <section class="hero">
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>Govind Boys Hostel</h1>
-        <p>Comfort, Care, and Convenience – All in One Place in Patna</p>
-        <a href="#contact" class="hero-button">Contact Now</a>
-      </div>
+<!-- Map Section -->
+<section class="mt-5">
+    <div class="container">
+        <h4 class="text-center mb-3 text-primary">📍 Our Location</h4>
+        <div class="map-responsive rounded shadow-sm overflow-hidden">
+            <iframe 
+                src="https://www.google.com/maps?q=Kasturba%20Path,%20Boring%20Road,%20Patna%20Bihar&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Features -->
-  <section class="features">
-    <h2>Our Facilities</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/50/0d47a1/wifi.png" alt="WiFi" />
-        <h3>Free 5G Wi-Fi</h3>
-        <p>Unlimited high-speed internet for learning and entertainment.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/50/0d47a1/restaurant.png" alt="Mess" />
-        <h3>Mess Included</h3>
-        <p>Healthy, home-style meals served daily at no extra cost.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/50/0d47a1/air-conditioner.png" alt="AC Rooms" />
-        <h3>Fan / AC Rooms</h3>
-        <p>Stay cool with both fan and air-conditioned room options.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/50/0d47a1/water.png" alt="RO Water" />
-        <h3>RO Drinking Water</h3>
-        <p>Pure and safe drinking water available 24×7 via RO system.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/50/0d47a1/flash-on.png" alt="Power Backup" />
-        <h3>24×7 Power Backup</h3>
-        <p>Uninterrupted electricity with inverter power backup.</p>
-      </div>
-    </div>
-  </section>
+<!-- Footer -->
+<footer class="mt-5 bg-dark text-white text-center p-4">
+    <p class="mb-0">
+        📍 Kasturba Path, Behind Jamuna Apartment, Near HP Gas Agency, Boring Road, Patna - 800013
+    </p>
+</footer>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Send Us a Message</h2>
-    <form action="https://formspree.io/f/mzzgnzgp" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="phone" placeholder="Your Phone Number" required />
-      <textarea name="message" rows="4" placeholder="Your Message..." required></textarea>
-      <button type="submit">Submit</button>
-    </form>
+<!-- WhatsApp Floating Button -->
+<div class="floating-whatsapp">
+    <a href="https://wa.me/917321811279" target="_blank" title="Chat with us on WhatsApp" rel="noopener noreferrer">
+        <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WhatsApp" />
+    </a>
+</div>
 
-    <!-- Google Map -->
-    <iframe class="map"
-      src="https://www.google.com/maps?q=Kasturba%20Path,%20Boring%20Road,%20Patna%20Bihar&output=embed"
-      allowfullscreen
-      loading="lazy"></iframe>
-  </section>
+<!-- Bootstrap Bundle JS (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Footer -->
-  <footer>
-    📍 Kasturba Path, Behind Jamuna Apartment, Near HP Gas Agency, Boring Road, Patna - 800013
-  </footer>
-
-  <!-- WhatsApp Button -->
-  <a class="whatsapp-float" href="https://wa.me/917321811279" target="_blank" title="Chat on WhatsApp">💬</a>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+</script>
 
 </body>
 </html>
